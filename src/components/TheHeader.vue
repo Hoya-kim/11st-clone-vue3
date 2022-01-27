@@ -36,6 +36,43 @@
         <div
           class="open-more"
           @click="toggleRankingWrap"></div>
+        <div 
+          v-if="isShowRankingWrap"
+          class="ranking-wrap">
+          <!-- wrap: title -->
+          <div class="title">
+            <h3>실시간 쇼핑 검색어</h3>
+            <div class="time">
+              <!-- 기준 날짜 -->
+            </div>
+            <div
+              class="close-wrap"
+              @click="toggleRankingWrap"></div>
+          </div>
+          <!-- wrap: tabs -->
+          <ul class="tabs">
+            <li class="tab">
+              1~10위
+            </li>
+            <li class="tab">
+              11~20위
+            </li>
+          </ul>
+          <!-- wrap: list -->
+          <ul class="list">
+            <li
+              v-for="(rank, index) in filteredRankings"
+              :key="rank.name"
+              class="list-keywords">
+              <a href="rank.href">
+                <span class="index">인덱스</span>
+                <span class="name">{{ rank.name }}</span>
+                <span class="relative-name">{{ rank.relativeName }}</span>
+              </a>
+              <div :class="`icon ${rank.status}`"></div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="user-menu">
       </div>
@@ -52,7 +89,14 @@ export default {
     return {
       searchText: '',
       rankings: {},
+      isShowRankingWrap: true,
     }
+  },
+  computed: {
+    filteredRankings() {
+      // @TODO: 1~10, 11~20 필터처리
+      return this.rankings.rankings
+    },
   },
   mounted() {
     this.init()
