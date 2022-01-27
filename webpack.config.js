@@ -6,9 +6,9 @@ module.exports = (env, options) => {
   console.log(env, options)
   return {
     resolve: {
-      extensions: ['.js', '.vue'],
+      extensions: ['.js', '.vue'],  // import할 떄 확장자 생략 가능해짐
       alias: {
-        '~': `${__dirname}/src`
+        '~': `${__dirname}/src` // 경로 별칭
       }
     },
     entry: './src/main.js',
@@ -68,7 +68,7 @@ module.exports = (env, options) => {
     ],
     devServer: {
       // port: 8080,
-      historyApiFallback: true
+      historyApiFallback: true  // 리다이렉트
     }
   }
 }
