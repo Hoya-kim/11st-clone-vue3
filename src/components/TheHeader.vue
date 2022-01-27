@@ -280,6 +280,124 @@ header {
         transform: rotate(45deg);
       }
     }
+    .ranking-wrap {
+      position: absolute;
+      top: 44px;
+      z-index: 2;
+      width: 410px;
+      padding: 18px 25px 25px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      box-sizing: border-box;
+      box-shadow: 0 6px 24px rgba(#000,.1);
+      background-color: #fff;
+      .title {
+        display: flex;
+        align-items: flex-end;
+        h3 {
+          font-size: 17px;
+          font-weight: 700;
+        }
+        .time {
+          margin-left: 10px;
+          font-size: 13px;
+          color: #999;
+          flex: 1;
+        }
+        .close-wrap {
+          width: 36px;
+          height: 36px;
+          background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
+          background-position: -261px -203px;
+          background-size: 363px;
+          cursor: pointer;
+          margin: -6px -10px;
+          transform: scale(.6666); // from 36px to 24px
+        }
+      }
+      .tabs {
+        height: 40px;
+        margin: 18px 0;
+        border: 1px solid #eee;
+        box-sizing: border-box;
+        background-color: #fafafa;
+        display: flex;
+        .tab {
+          flex: 1;
+          color: #7d7d7d;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &:first-child {
+            border-right: 1px solid #eee;
+          }
+          &.active {
+            background-color: #fff;
+            font-weight: 700;
+            color: #333;
+          }
+        }
+      }
+      .list {
+        li {
+          position: relative;
+          margin-top: 14px;
+          &:first-child {
+            margin-top: 0;
+          }
+          a {
+            display: block;
+            height: 22px;
+            line-height: 22px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #000;
+            .index {
+              font-weight: 700;
+              margin-right: 10px;
+              color: #f43142;
+              font-style: italic;
+            }
+            .relative-name {
+              margin-left: 4px;
+              font-size: 13px;
+              color: #999;
+            }
+          }
+          .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 22px;
+            height: 22px;
+            background-image: url("https://trusting-williams-8cacfb.netlify.app/images/globals_2x.png");
+            background-size: 363px;
+            &.stay {
+              background-image: none;
+              &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                width: 6px;
+                height: 2px;
+                background: #999;
+              }
+            }
+            &.up {
+              background-position: -110px -251px;
+            }
+            &.down {
+              background-position: -58px -251px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>
