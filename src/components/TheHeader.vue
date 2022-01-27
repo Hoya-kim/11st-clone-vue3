@@ -89,7 +89,7 @@ export default {
     return {
       searchText: '',
       rankings: {},
-      isShowRankingWrap: true,
+      isShowRankingWrap: false,
     }
   },
   computed: {
@@ -131,7 +131,7 @@ export default {
       console.log(result)
     },
     toggleRankingWrap() {
-      
+      this.isShowRankingWrap = !this.isShowRankingWrap
     },
   },
 }
