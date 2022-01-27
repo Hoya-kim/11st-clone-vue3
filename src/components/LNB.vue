@@ -72,7 +72,7 @@ export default {
   computed: {
     isShow() {
       return this.$store.state.navigation.isShow
-    }
+    },
   },
   created() {
     this.init()
@@ -89,7 +89,7 @@ export default {
     offNav() {
       this.$store.dispatch('navigation/offNav')
     },
-  }
+  },
 }
 </script>
 

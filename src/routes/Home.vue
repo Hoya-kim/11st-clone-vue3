@@ -8,7 +8,7 @@ export default {
   computed: {
     heropyMessage() {
       return this.$store.state.heropy.message
-    }
-  }
+    },
+  },
 }
 </script>

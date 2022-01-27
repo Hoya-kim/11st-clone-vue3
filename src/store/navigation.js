@@ -11,7 +11,7 @@ export default {
       Object.keys(payload).forEach(key => {
         state[key] = payload[key]
       })
-    }
+    },
   },
   actions: {
     onNav({ commit }) { // context : { state, getters, commit, dispatch }
@@ -19,6 +19,6 @@ export default {
     },
     offNav({ commit }) {
       commit('setState', { isShow: false })
-    }
-  }
+    },
+  },
 }

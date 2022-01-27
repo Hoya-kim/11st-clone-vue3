@@ -61,7 +61,7 @@ export default {
     async init() {
       this.rankings = await this.$fetch({
         requestName: 'rankings',
-        endPoint: 'main'
+        endPoint: 'main',
       })
 
       await this.$nextTick()  // 콜백으로 넘겨줘도 됨
@@ -71,9 +71,9 @@ export default {
         direction: 'vertical',
         speed: 1000,
         autoplay: {
-          delay: 3000
+          delay: 3000,
         },
-        loop: true
+        loop: true,
       })
     },
     onNav() {
@@ -88,8 +88,8 @@ export default {
     },
     toggleRankingWrap() {
       
-    }
-  }
+    },
+  },
 }
 </script>
 

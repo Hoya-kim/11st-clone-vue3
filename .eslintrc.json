@@ -11,6 +11,13 @@
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
     "eol-last": ["error", "always"],
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }],
 
     "vue/html-closing-bracket-newline": ["error", {
       "singleline": "never",

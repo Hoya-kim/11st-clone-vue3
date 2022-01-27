@@ -3,6 +3,6 @@ import navigation from './navigation'
 
 export default createStore({
   modules: {
-    navigation
-  }
+    navigation,
+  },
 })

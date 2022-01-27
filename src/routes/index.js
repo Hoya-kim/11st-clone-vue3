@@ -8,11 +8,11 @@ export default createRouter({
   routes: [
     {
       path: '/',
-      component: Home
+      component: Home,
     },
     {
       path: '/about',
-      component: About
-    }
-  ]
+      component: About,
+    },
+  ],
 })

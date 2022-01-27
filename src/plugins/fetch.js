@@ -8,9 +8,9 @@ export default {
       const { requestName, endPoint, searchText } = options
       const { data } = await axios({
         url: `${BASE_URL}${endPoint}?apiKey=1216&${requestName && `requestName=${requestName}`}`,
-        method: 'GET'
+        method: 'GET',
       })
       return data
     }
-  }
+  },
 }

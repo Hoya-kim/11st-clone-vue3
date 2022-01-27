@@ -10,8 +10,8 @@ import TheHeader from '~/components/TheHeader'
 export default {
   components: {
     LNB,  // 지역등록
-    TheHeader
-  }
+    TheHeader,
+  },
 }
 </script>
 
