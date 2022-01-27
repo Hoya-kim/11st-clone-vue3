@@ -43,7 +43,6 @@
           <div class="title">
             <h3>실시간 쇼핑 검색어</h3>
             <div class="time">
-              <!-- 기준 날짜 -->
               {{ referenceDate }} 기준
             </div>
             <div
@@ -52,10 +51,14 @@
           </div>
           <!-- wrap: tabs -->
           <ul class="tabs">
-            <li class="tab">
+            <li
+              :class="`tab ${currentTab || 'active'}`"
+              @click="currentTab = 0">
               1~10위
             </li>
-            <li class="tab">
+            <li
+              :class="`tab ${currentTab && 'active'}`"
+              @click="currentTab = 1">
               11~20위
             </li>
           </ul>
@@ -66,7 +69,7 @@
               :key="rank.name"
               class="list-keywords">
               <a href="rank.href">
-                <span class="index">인덱스</span>
+                <span class="index">{{ (currentTab * 10) + index + 1 }}</span>
                 <span class="name">{{ rank.name }}</span>
                 <span class="relative-name">{{ rank.relativeName }}</span>
               </a>
@@ -91,13 +94,10 @@ export default {
       searchText: '',
       rankings: {},
       isShowRankingWrap: false,
+      currentTab: 0,
     }
   },
   computed: {
-    filteredRankings() {
-      // @TODO: 1~10, 11~20 필터처리
-      return this.rankings.rankings
-    },
     referenceDate() {
       const date = new Date(this.rankings.referenceDate)
       
@@ -110,6 +110,13 @@ export default {
       minute = minute >= 10 ? minute : '0' + minute
       
       return [date.getFullYear(), month, day].join('.') + ' ' + [hour, minute].join(':')
+    },
+    filteredRankings() {
+      return this.rankings.rankings.filter((_, index) => {
+        const start = this.currentTab * 10
+        const end = start + 9
+        return start <= index && index <= end
+      })
     },
   },
   mounted() {
