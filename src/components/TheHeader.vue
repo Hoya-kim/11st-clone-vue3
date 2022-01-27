@@ -149,7 +149,9 @@ export default {
         endPoint: 'search',
         searchText: this.searchText,
       })
-      console.log(result)
+      console.log(
+        `%c검색결과: ${result}`, 'color:skyblue; font-size:15px'
+      )
     },
     toggleRankingWrap() {
       this.isShowRankingWrap = !this.isShowRankingWrap
