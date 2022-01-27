@@ -44,6 +44,7 @@
             <h3>실시간 쇼핑 검색어</h3>
             <div class="time">
               <!-- 기준 날짜 -->
+              {{ referenceDate }} 기준
             </div>
             <div
               class="close-wrap"
@@ -96,6 +97,19 @@ export default {
     filteredRankings() {
       // @TODO: 1~10, 11~20 필터처리
       return this.rankings.rankings
+    },
+    referenceDate() {
+      const date = new Date(this.rankings.referenceDate)
+      
+      let [month, day] = [date.getMonth() + 1, date.getDate()]
+      let [hour, minute] = [date.getHours(), date.getMinutes()]
+
+      month = month >= 10 ? month : '0' + month
+      day = day >= 10 ? day : '0' + day
+      hour = hour >= 10 ? hour : '0' + hour
+      minute = minute >= 10 ? minute : '0' + minute
+      
+      return [date.getFullYear(), month, day].join('.') + ' ' + [hour, minute].join(':')
     },
   },
   mounted() {
