@@ -7,7 +7,7 @@
       <div class="flex-space"></div>
       <div
         class="close-nav"
-        @click="offNav"></div>
+        @click="offNav('LNB')"></div>
     </div>
     <div
       class="container"
@@ -57,7 +57,7 @@
   <div
     v-if="isShow"
     class="nav-bg"
-    @click="offNav"></div>
+    @click="offNav('LNB')"></div>
 </template>
 
 <script>
@@ -71,7 +71,7 @@ export default {
   },
   computed: {
     isShow() {
-      return this.$store.state.navigation.isShow
+      return this.$store.state.navigation.isShowLNB
     },
   },
   created() {
@@ -86,8 +86,8 @@ export default {
       this.done = true
       console.log(this.navigations)
     },
-    offNav() {
-      this.$store.dispatch('navigation/offNav')
+    offNav(name) {
+      this.$store.dispatch('navigation/offNav', name)
     },
   },
 }
