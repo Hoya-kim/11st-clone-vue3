@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style scope lang="scss">
+<style scoped lang="scss">
   nav {
     width: 300px;
     height: 100%;
