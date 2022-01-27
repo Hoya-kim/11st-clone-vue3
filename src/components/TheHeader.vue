@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ fixed: isFixed }">
     <div class="inner">
       <div
         class="open-nav-drawer"
@@ -106,7 +106,8 @@
     </div>
   </header>
   <div
-    class="utils">
+    class=""
+    :class="`utils ${{fixed: isFixed}}`">
     <div class="inner">
       <ul>
         <li>
@@ -137,6 +138,7 @@
 <script>
 import Swiper from 'swiper/bundle'
 import 'swiper/css/bundle'
+import _throttle from 'lodash/throttle'
 
 export default {
   data() {
@@ -179,6 +181,7 @@ export default {
   },
   mounted() {
     this.init()
+    this.setDomEvent()
   },
   methods: {
     async init() {
@@ -213,6 +216,11 @@ export default {
     },
     toggleRankingWrap() {
       this.isShowRankingWrap = !this.isShowRankingWrap
+    },
+    setDomEvent() {
+      window.addEventListener('scroll', _throttle(() => {
+        this.isFixed = window.scrollY > 120
+      }, 100))
     },
   },
 }
