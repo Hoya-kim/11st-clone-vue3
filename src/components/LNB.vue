@@ -42,7 +42,7 @@
         <div class="group__title">
           주요 서비스
         </div>
-        <ui class="group__list">
+        <ul class="group__list">
           <li
             v-for="item in navigations.majorServices.list"
             :key="item.name">
@@ -50,7 +50,7 @@
               {{ item.name }}
             </a>
           </li>
-        </ui>
+        </ul>
       </div>
     </div>
   </nav>
