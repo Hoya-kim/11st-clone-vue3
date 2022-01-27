@@ -8,8 +8,8 @@ module.exports = (env, options) => {
     resolve: {
       extensions: ['.js', '.vue'],  // import할 떄 확장자 생략 가능해짐
       alias: {
-        '~': `${__dirname}/src` // 경로 별칭
-      }
+        '~': `${__dirname}/src`, // 경로 별칭
+      },
     },
     entry: './src/main.js',
     // entry: { main: '', module1: '', module2: '' },
@@ -17,18 +17,18 @@ module.exports = (env, options) => {
       // path: `${__dirname}/dist`,
       // filename: '[name].js',
       publicPath: '/',
-      clean: true
+      clean: true,
     },
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: 'babel-loader'
+          use: 'babel-loader',
         },
         {
           test: /\.vue$/,
-          use: 'vue-loader'
+          use: 'vue-loader',
         },
         {
           test: /\.s?css$/,
@@ -48,27 +48,27 @@ module.exports = (env, options) => {
                   @use "sass:selector";
                   @use "sass:string";
                   @import "~/scss/_variables";
-                `
-              }
-            }
-          ]
-        }
-      ]
+                `,
+              },
+            },
+          ],
+        },
+      ],
     },
     plugins: [
       new VueLoaderPlugin(),
       new HtmlPlugin({
-        template: './src/index.html'
+        template: './src/index.html',
       }),
       new CopyPlugin({
         patterns: [
-          { from: 'static' }
-        ]
-      })
+          { from: 'static' },
+        ],
+      }),
     ],
     devServer: {
       // port: 8080,
-      historyApiFallback: true  // 리다이렉트
-    }
+      historyApiFallback: true,  // 리다이렉트
+    },
   }
 }
